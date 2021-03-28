@@ -37,7 +37,7 @@ const startTimer = () => {
             hundreths = `0${hundreths}`;
         }
 
-        time.textContent = `${seconds}:${hundreths}`;
+        time.textContent = `${seconds}:${hundreths}`; 
     }
 
 
