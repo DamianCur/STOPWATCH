@@ -3,27 +3,29 @@
 const startBtn = document.querySelector(".main");
 const resetBtn = document.querySelector(".reset");
 const time = document.querySelector(".time div");
+let currentTime = new Date().getTime();
+
 
 const startTimer = () => {
-    const currentTime = new Date().getTime();
+
 
 
     if (startBtn.textContent === "Stop") {
         startBtn.textContent = "Start";
         clearInterval(startTime);
-        
+
 
     } else if (startBtn.textContent === "Start") {
         startBtn.textContent = "Stop";
         startTime = setInterval(timer, 10);
-        
+
     }
 
 
 
 
     function timer() {
-        
+
         let newTime = new Date().getTime();
         // const stopwatchTime = newTime - currentTime;
 
@@ -31,13 +33,13 @@ const startTimer = () => {
 
         hundreths = Math.floor((newTime / 10) - (currentTime / 10)) % 100;
 
-    
+
 
         if (hundreths < 10) {
             hundreths = `0${hundreths}`;
         }
 
-        time.textContent = `${seconds}:${hundreths}`; 
+        time.textContent = `${seconds}:${hundreths}`;
     }
 
 
@@ -50,7 +52,10 @@ const startTimer = () => {
 }
 
 const resetTimer = () => {
+    clearInterval(startTime);
     time.textContent = "---"
+    startBtn.textContent = "Start";
+    currentTime = new Date().getTime();
 }
 
 
